@@ -12,8 +12,12 @@ $ composer install
 # create database
 # configure .env file
 
+
 # database migratons
 $ php artisan migrate
+
+# storage link
+$ php artisan storage:link
 
 # production build
 $ npm run prod
