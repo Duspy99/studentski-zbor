@@ -14,6 +14,7 @@ use App\Models\Dokumenti;
 use App\Models\DokumentiDatoteke;
 use App\Models\Sponzori;
 use Session;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -41,12 +42,18 @@ class AdminController extends Controller
 
     public function spremiNovost(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(),[
             'naslov' => 'required',
             'sadrzaj' => 'required',
             'vrsta' => 'required',
+            'naslovna_slika' => 'image|max:3072',
+            'galerija_slike.*' => 'image|max:3072'
         ]);
-
+       
+        if ($validator->fails()) {
+            return back();
+        }
+        
         $novost = new Novosti;
         $novost->naslov = $request->naslov;
         $novost->sadrzaj = $request->sadrzaj;
@@ -255,6 +262,15 @@ class AdminController extends Controller
 
     public function spremiDatotekeStavkiSaziva(Request $request)
     {
+        
+        $validator = Validator::make($request->all(),[
+            'dokumenti.*' => 'max:3072'
+        ]);
+       
+        if ($validator->fails()) {
+            return back();
+        }
+        
         $id_saziva = $request->id;
         if($request->hasFile('dokumenti'))
         {
@@ -340,6 +356,17 @@ class AdminController extends Controller
 
     public function spremiDatotekuDokumenta(Request $request)
     {
+
+             
+        $validator = Validator::make($request->all(),[
+            'dokumenti.*' => 'max:3072'
+        ]);
+       
+        if ($validator->fails()) {
+            return back();
+        }
+        
+        
         if($request->hasFile('dokumenti'))
         {
             foreach($request->dokumenti as $dokument)
@@ -388,10 +415,15 @@ class AdminController extends Controller
 
     public function spremiSponzora(Request $request)
     {
-        $validated = $request->validate([
+             
+        $validator = Validator::make($request->all(),[
             'naziv' => 'required',
-            'slika' => 'required'
+            'slika' => 'required|image|max:3072'
         ]);
+       
+        if ($validator->fails()) {
+            return back();
+        }
 
         $sponzor = new Sponzori;
         $sponzor->naziv = $request->naziv;

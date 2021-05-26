@@ -33,7 +33,8 @@ export default {
 
 <style scoped>
 #landinganimation {
-  background-image: url("https://images.unsplash.com/photo-1498079022511-d15614cb1c02?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+
+  background-image: url("/images/landing-image.jpg");
   content: " ";
   width: 100vw;
   max-width: 100%;

@@ -101,11 +101,7 @@
         </div>
       </b-container>
 
-      <!--
-      <div class="parallax-image">
-        </div>
     </b-container>
-    -->
 
     <b-container fluid class="p-0 student-image-div">
       <b-img-lazy class="student-image" src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Studentski zbor"></b-img-lazy>

@@ -15,9 +15,6 @@ use App\Http\Controllers\MainController;
 |
 */
 
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
 
 
 Auth::routes();

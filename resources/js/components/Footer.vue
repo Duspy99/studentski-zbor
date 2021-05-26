@@ -32,7 +32,7 @@
                   <b-link to="/novosti"><b>NOVOSTI</b></b-link>
                 </div>
                 <div class="mb-2">
-                  <b-link to="/trenutni-saziv"><b>{{saziv.naziv}}</b></b-link>
+                  <b-link to="/trenutni-saziv" class="text-uppercase"><b>{{saziv.naziv}}</b></b-link>
                 </div>
 
               </b-col>
@@ -60,6 +60,10 @@
             </b-row>
           </b-col>
         </b-row>
+
+        <div class="switch-logo text-center">
+          <b-img-lazy src="/images/switch-logo-white.svg" height="85px"></b-img-lazy>
+        </div>
 
         <p class="small text-muted text-center mt-4">
           Studentski Zbor 2021 © Sva prava pridržana
